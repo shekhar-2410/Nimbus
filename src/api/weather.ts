@@ -12,7 +12,7 @@ class WeatherApi {
       appid: API_CONFIG.API_KEY,
       ...Object.fromEntries(
         Object.entries(params).map(([key, value]) => [key, String(value)])
-      ), // Convert values to strings
+      ), 
     });
     return `${endpoint}?${searchParams.toString()}`;
   }
