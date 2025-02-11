@@ -6,6 +6,3 @@ export const API_CONFIG = {
     unit: "metric",
   },
 };
-console.log("All env variables:", import.meta.env);
-console.log("VITE_API_KEY:", import.meta.env.VITE_API_KEY);
-console.log("API Key:", API_CONFIG.API_KEY); // Debugging

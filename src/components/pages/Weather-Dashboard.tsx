@@ -10,6 +10,7 @@ import {
   useWeatherQuery,
 } from "../hooks/use-weather";
 import CurrentWeather from "./CurrentWeather";
+import HourlyTemp from "./HourlyTemp";
 const WeatherDashboard = () => {
   const { coordinates, isLoading, error, getLocation } = useGeolocation();
   const weatherQuery = useWeatherQuery(coordinates);
@@ -93,7 +94,7 @@ const WeatherDashboard = () => {
         </Button>
       </div>
       <div className="grid gap-6">
-        <div>
+        <div className="flex flex-col lg:flex-row gap-4">
           {/* current weater */}
           {weatherQuery?.data && (
             <CurrentWeather
@@ -102,6 +103,7 @@ const WeatherDashboard = () => {
             />
           )}
           {/* housr temaperatures */}
+          {forecastQuery?.data && <HourlyTemp data={forecastQuery?.data} />}
         </div>
         <div>
           {/* details */}
