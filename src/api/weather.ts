@@ -12,7 +12,7 @@ class WeatherApi {
       appid: API_CONFIG.API_KEY,
       ...Object.fromEntries(
         Object.entries(params).map(([key, value]) => [key, String(value)])
-      ), 
+      ),
     });
     return `${endpoint}?${searchParams.toString()}`;
   }
@@ -56,6 +56,14 @@ class WeatherApi {
       limit: 1,
     });
     return this.fetchData<GeocodingResponse[]>(url);
+  }
+  //searchLocation
+  async searchLoaction(query: string): Promise<GeocodingResponse[]> {
+    const url = this.createUrl(`${API_CONFIG.GEO}/direct`, {
+      limit:5,
+      q: query,
+    })
+    return this.fetchData<GeocodingResponse[]>(url)
   }
 }
 

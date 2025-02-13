@@ -1,4 +1,4 @@
-import React from "react";
+import logo from "/logo.svg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
         {/* Logo */}
         <Link to="/">
-          <img src="./logo.svg" alt="brand-logo" className="h-12" />
+          <img src={logo} alt="brand-logo" className="h-12" />
         </Link>
 
         {/* Navigation Links */}
