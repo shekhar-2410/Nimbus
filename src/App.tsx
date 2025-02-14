@@ -1,3 +1,4 @@
+import { Toaster } from "sonner";
 import { ThemeProvider } from "./components/context/theme-provider";
 import Layout from "./components/layout/Layout";
 import Cities from "./components/pages/Cities";
@@ -13,6 +14,7 @@ function App() {
           <Route path="/city/:cityname" element={<Cities />} />
         </Routes>
       </Layout>
+      <Toaster richColors position="top-center" />
     </ThemeProvider>
   );
 }

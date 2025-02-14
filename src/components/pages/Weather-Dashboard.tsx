@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { AlertTriangle, MapPin, RefreshCcw } from "lucide-react";
 import { useGeolocation } from "../hooks/use-geolocation";
-import Loading_skeleton from "./Loading_skeleton";
+import Loadingskeleton from "./Loading_skeleton";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import {
   useForecastQuery,
@@ -13,6 +13,7 @@ import CurrentWeather from "./CurrentWeather";
 import HourlyTemp from "./HourlyTemp";
 import WeatherDetails from "./WeatherDetails";
 import WeatherForecast from "./WeatherForecast";
+import FavouriteCities from "./FavouriteCities";
 const WeatherDashboard = () => {
   const { coordinates, isLoading, error, getLocation } = useGeolocation();
   const weatherQuery = useWeatherQuery(coordinates);
@@ -29,7 +30,7 @@ const WeatherDashboard = () => {
   };
   // loading
   if (isLoading) {
-    return React.createElement(Loading_skeleton);
+    return React.createElement(Loadingskeleton);
   }
   // error
   if (error) {
@@ -84,13 +85,19 @@ const WeatherDashboard = () => {
       </Alert>
     );
   }
+  if (!weatherQuery.data || !forecastQuery.data) {
+    return <Loadingskeleton />;
+  }
+
   return (
     <div className="space-y-4">
+      {/* favoritecities */}
+      <FavouriteCities />
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold tracking-tighter">My Location</h1>
         <Button onClick={handleRefresh} variant={"outline"} size={"icon"}>
           <RefreshCcw
-            className={` mr-2 h-4 w-4 
+            className={` h-4 w-4 
               ${weatherQuery.isFetching ? "animate-spin" : ""}`}
           />
         </Button>

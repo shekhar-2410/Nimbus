@@ -10,22 +10,6 @@ const Footer = () => {
           <img src={logo} alt="brand-logo" className="h-12" />
         </Link>
 
-        {/* Navigation Links */}
-        <nav className="flex space-x-4 mt-3 md:mt-0">
-          <Link to="/" className="text-primary hover:underline">
-            Home
-          </Link>
-          <Link to="/about" className="text-primary hover:underline">
-            About
-          </Link>
-          <Link to="/weather" className="text-primary hover:underline">
-            Weather
-          </Link>
-          <Link to="/contact" className="text-primary hover:underline">
-            Contact
-          </Link>
-        </nav>
-
         {/* App Description */}
         <p className="text-sm text-muted-foreground text-center mt-3 md:mt-0">
           Nimbus - Your reliable weather forecast app. Stay updated with
