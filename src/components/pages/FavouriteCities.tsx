@@ -28,7 +28,7 @@ const FavouriteCities = () => {
             <FavoriteCityTab
               key={city.id}
               {...city}
-              onRemove={(id) => removeFavorite.mutate(city.id)}
+              onRemove={() => removeFavorite.mutate(city.id)}
             />
           ))}
         </div>
@@ -65,7 +65,7 @@ const FavoriteCityTab = ({
         size="icon"
         className="absolute right-1 top-1 h-6 w-6 rounded-full p-0 hover:text-destructive-foreground"
         onClick={(e) => {
-          e.stopPropagation(); 
+          e.stopPropagation();
           onRemove(id);
           toast.error(`Removed ${name} from Favorites`);
         }}
