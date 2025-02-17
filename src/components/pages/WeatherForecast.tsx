@@ -48,16 +48,16 @@ const WeatherForecast = ({ data }: WeatherForecastProps) => {
       <CardHeader>
         <CardTitle>Weather Forecast</CardTitle>
       </CardHeader>
-      <CardContent className="px-6 py-4">
+      <CardContent className="px-4 py-3 sm:px-6 sm:py-4">
         <div className="grid gap-4">
           {nextDays.map((day) => (
             <div
               key={day.date}
               className="rounded-lg border p-4 shadow-sm bg-background"
             >
-              <div className="grid grid-cols-3 items-center gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 items-center gap-4 sm:gap-6">
                 {/* Date & Weather Description */}
-                <div>
+                <div className="text-center sm:text-left">
                   <p className="font-medium">
                     {format(new Date(day.date), "dd MMMM yyyy")}
                   </p>
@@ -67,7 +67,7 @@ const WeatherForecast = ({ data }: WeatherForecastProps) => {
                 </div>
 
                 {/* Min & Max Temperature (Together) */}
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
                   <span className="flex items-center text-blue-500">
                     <ArrowDown className="h-4 w-4 mr-1" />
                     {formatTemp(day.temp_min)}
@@ -79,7 +79,7 @@ const WeatherForecast = ({ data }: WeatherForecastProps) => {
                 </div>
 
                 {/* Humidity & Wind Speed (Together) */}
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
                   <span className="flex items-center text-blue-500">
                     <Droplet className="h-4 w-4 mr-1" />
                     {day.humidity}%

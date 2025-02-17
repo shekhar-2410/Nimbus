@@ -48,9 +48,9 @@ const Searchlocation = () => {
       <CommandDialog
         open={open}
         onOpenChange={setOpen}
-        className="fixed inset-0 flex items-center justify-center"
+        className="fixed inset-0 flex items-center justify-center p-4"
       >
-        <div className="border-b bg-background/95 backdrop-blur py-2 w-96 relative">
+        <div className="bg-background/90 backdrop-blur-lg border border-border rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg p-3 sm:p-4 relative">
           <button
             onClick={() => setOpen(false)}
             className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -61,22 +61,22 @@ const Searchlocation = () => {
             placeholder="Search cities..."
             value={query}
             onValueChange={setQuery}
+            className="w-full"
           />
-          <CommandList>
+          <CommandList className="max-h-60 overflow-y-auto">
             {query.length > 0 && !isLoading && data?.length === 0 && (
               <CommandEmpty>No cities found.</CommandEmpty>
             )}
 
-            {/* favorites */}
+            {/* Favorites */}
             {favorites && favorites.length > 0 && (
               <CommandGroup heading="Favorites">
-               
                 {favorites.map((location) => (
                   <CommandItem
                     key={location.id}
                     value={`${location.lat}|${location.lon}|${location.name}|${location.country}`}
                     onSelect={handleSelect}
-                    className="flex items-center justify-between gap-2"
+                    className="flex items-center justify-between gap-2 hover:bg-accent rounded-md px-2 py-1"
                   >
                     <div className="flex items-center gap-2">
                       <Star className="h-4 w-4 text-yellow-500" />
@@ -86,29 +86,26 @@ const Searchlocation = () => {
                         {location.country}
                       </span>
                     </div>
-                    
                   </CommandItem>
                 ))}
               </CommandGroup>
             )}
-            {/* serch history */}
+
+            {/* Search History */}
             {history && history.length > 0 && (
               <>
                 <CommandSeparator />
-
                 <CommandGroup>
                   <div className="flex items-center justify-between px-2 py-2">
                     <p className="text-xs text-muted-foreground">
                       Recent Searches
                     </p>
                     <Button
-                      onClick={() => {
-                        clearHistory.mutate();
-                      }}
+                      onClick={() => clearHistory.mutate()}
                       variant={"ghost"}
-                      className="text-xs "
+                      className="text-xs flex items-center gap-1"
                     >
-                      <XCircle className=" h-4 w-4" />
+                      <XCircle className="h-4 w-4" />
                       Clear
                     </Button>
                   </div>
@@ -117,7 +114,7 @@ const Searchlocation = () => {
                       key={`${location.lat}-${location.lon}`}
                       value={`${location.lat}|${location.lon}|${location.name}|${location.country}`}
                       onSelect={handleSelect}
-                      className="flex items-center justify-between gap-2"
+                      className="flex items-center justify-between gap-2 hover:bg-accent rounded-md px-2 py-1"
                     >
                       <div className="flex items-center gap-2">
                         <Clock className="h-4 w-4 text-muted-foreground" />
@@ -136,7 +133,7 @@ const Searchlocation = () => {
               </>
             )}
 
-            {/*  search city*/}
+            {/* Search Suggestions */}
             <CommandSeparator />
             {data && data.length > 0 && (
               <CommandGroup heading="Suggestions">
@@ -150,7 +147,7 @@ const Searchlocation = () => {
                     key={`${location.lat}-${location.lon}`}
                     value={`${location.lat}|${location.lon}|${location.name}|${location.country}`}
                     onSelect={handleSelect}
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 hover:bg-accent rounded-md px-2 py-1"
                   >
                     <Search className="h-4 w-4 text-muted-foreground" />
                     <div className="flex flex-col">
