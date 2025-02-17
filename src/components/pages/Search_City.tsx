@@ -53,7 +53,7 @@ const Searchlocation = () => {
         <div className="bg-white-50 backdrop-blur-lg border border-border rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg p-3 sm:p-4 relative">
           <Button
             onClick={() => setOpen(false)}
-            className="absolute top-2 right-2  hover:text-gray-700 text-white hover:bg-transparent"
+            className="absolute top-2 right-2  hover:text-gray-700  hover:bg-transparent"
             variant={"ghost"}
           >
             <CircleX />
