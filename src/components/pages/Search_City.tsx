@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { CommandDialog } from "cmdk";
-import { Clock, Loader2, Search, Star, XCircle } from "lucide-react";
+import { CircleX, Clock, Loader2, Search, Star, XCircle } from "lucide-react";
 import { useSearchLocationQuery } from "../hooks/use-weather";
 import { useNavigate } from "react-router-dom";
 import { useSearchHistory } from "../hooks/use-search-history";
@@ -50,13 +50,14 @@ const Searchlocation = () => {
         onOpenChange={setOpen}
         className="fixed inset-0 flex items-center justify-center p-4"
       >
-        <div className="bg-background/90 backdrop-blur-lg border border-border rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg p-3 sm:p-4 relative">
-          <button
+        <div className="bg-white-50 backdrop-blur-lg border border-border rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg p-3 sm:p-4 relative">
+          <Button
             onClick={() => setOpen(false)}
-            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            className="absolute top-2 right-2  hover:text-gray-700 text-white hover:bg-transparent"
+            variant={"ghost"}
           >
-            ✖
-          </button>
+            <CircleX />
+          </Button>
           <CommandInput
             placeholder="Search cities..."
             value={query}
