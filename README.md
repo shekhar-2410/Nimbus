@@ -2,7 +2,7 @@
 
 # Live Demo
 
-View Live Application
+https://nimbus-phi-lake.vercel.app/
 
 # Overview
 
@@ -42,7 +42,7 @@ Custom Hooks & OOP-based API Handling – Ensuring modular and scalable code.
 
 # Project Structure
 
-The project follows a modular and scalable architecture, incorporating Object-Oriented Programming (OOP) principles and React hooks to efficiently manage API interactions.
+The project follows a modular and scalable architecture, incorporating object-oriented programming (OOP) principles and react hooks to manage API interactions efficiently.
 
 # Getting Started
 
@@ -54,7 +54,7 @@ Installation
 
 Clone the repository:
 
-git clone <repository-url>
+git clone <https://github.com/shekhar-2410/Nimbus.git>
 
 Navigate to the project directory:
 
